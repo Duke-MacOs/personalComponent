@@ -4,7 +4,7 @@
         // 渲染模板
         this.render();
         // 设置日历数据
-        // this.setData();
+        this.setData();
         // this. bind();
         
     }
@@ -15,21 +15,14 @@
             this.target = document.getElementById(target);
         },
         setData: function () {
-            // 获取上个月的new Date对象
-            // function getPreDate() {
-            //     let preMonth = (_month === 0) ? 11 : _month - 1,
-            //         preYear = (_month === 0) ? _year - 1 : _year,
-            //         preDate = new Date(preYear, preMonth, 0);
-
-            //     return preDate;
-            // }
-            // 获取下个月的new Date对象
-            function getNextDate() {
-                let nextMonth = (_month === 11) ? 0 : _month + 1,
-                    nextYear = (_month === 11) ? _year + 1 : _year,
-                    nextDate = new Date(nextYear, nextMonth, 0);
-
-                return nextDate;
+            console.log(this.date)
+            // 获取当前第一天的Date对象
+            function getFirstDay(date) {
+                return new Date(date.getTime() - (date.getDate() - 1)*1000*60*60*24);
+            }
+            // 获取当前最后一天的Date对象
+            function getLastDay(date) {
+                return new Date(date.getTime() + 1000*60*60*24*(getMonthLength(date) - date.getDate()));
             }
             // 计算Date对象当前月有多少天
             function getMonthLength(date) {
@@ -38,25 +31,27 @@
             var _date = this.date,
                 _year = _date.getYear(),
                 _month = _date.getMonth(),
-                _day = _date.getDate(),
-                _week = _date.getDay(),
-                _firstDay = new Date(_year, _month, 1),
-                _lastDay = new Date(_year, _month, getMonthLength(_date));
-                arr = [],
+                _firstDay = getFirstDay(_date), // 当前日期的第一天
+                _lastDay = getLastDay(_date),  // 当前日期最后一天
+                arr = [];
 
-            for (let i = _firstDay.getDay(), ii = 0; i > ii; i--) {
+            for(let i = _firstDay.getDay(), ii = 0; i > ii; i--) {
                 arr.push({type: 'pre-month', date: new Date(_firstDay - 1000*60*60*24*i)});
             }
 
-            for (let i = 0, ii = getMonthLength(_date); i < ii; i++) {
-                arr.push({type: 'cur-month', date: i + 1});
+            for(let i = 1, ii = getMonthLength(_date), length = arr.length; i <= ii; i++) {
+                if(length) {
+                    let last = arr[length - 1].date;
+                    arr.push({type: 'cur-month', date: new Date(last.getTime() + 1000*60*60*24*i)});
+                }else {
+                    arr.push({type: 'cur-month', date: new Date(_firstDay.getTime() + 1000*60*60*24*(i - 1))});
+                }
+                
             }
 
-            for (let i = 0, ii = 6 - _lastDay.getDay(); i < ii; i++) {
-                arr.push({type: 'next-month', date: })
+            for(let i = 1, ii = 6 - _lastDay.getDay(); i <= ii; i++) {
+                arr.push({type: 'next-month', date: new Date(_lastDay.getTime() + 1000*60*60*24*i)})
             }
-
-
 
         },
         render: function () {
