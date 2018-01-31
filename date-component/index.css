@@ -58,7 +58,7 @@
 }
 .date-time-picker .panel .pre-month,
 .date-time-picker .panel .next-month {
-    color: white;
+    color: #ccc;
 }
 .date-time-picker .panel .cur-month {
     cursor: pointer;
