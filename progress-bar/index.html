@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>加载进度条</title>
+        <meta name="description" content="页面没加载完时，显示加载动画">
+        <style>
+            .curtain {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                background-color: white;
+                z-index: 9999;
+            }
+            .curtain .loading {
+                width: 160px;
+                height: 20px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                background: url(30.gif);
+            }
+        </style>
+
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <div class="curtain">
+            <div class="loading"></div>
+        </div>
+       <section>
+           <img src="http://img.zcool.cn/community/01711b59426ca1a8012193a31e5398.gif" alt="">
+           <img src="http://img3.imgtn.bdimg.com/it/u=886254399,3956123734&fm=27&gp=0.jpg" alt="">
+           <img src="http://pic35.nipic.com/20131121/2531170_145358633000_2.jpg" alt="">
+           <img src="http://img5.imgtn.bdimg.com/it/u=3477760860,3923392959&fm=27&gp=0.jpg" alt="">
+           <img src="http://img2.imgtn.bdimg.com/it/u=1134876658,3727605308&fm=27&gp=0.jpg" alt="">
+           <img src="http://img3.imgtn.bdimg.com/it/u=576260586,2346360963&fm=27&gp=0.jpg" alt="">
+           <img src="http://i2.hdslb.com/bfs/archive/f4c1445fa657c460365e1a9ca70703165378819c.jpg" alt="">
+       </section>
+    </body>
+</html>
