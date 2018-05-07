@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>tabs 组件</title>
+        <style>
+            body {
+                background: #E2DE2D;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+            }
+            .tabs {
+                width: 460px;
+                /*height: 460px;*/
+                position: flex;
+                margin-top: 3em;
+                background: #D7D3C7;
+            }
+            .tabs ol:first-child {
+                display: flex;
+                /*flex-basis: 20%;*/
+            }
+            .tabs ol:nth-child(2){
+               /*flex-basis: 80%;*/
+               display: block;
+            }
+            .tabs ol:first-child li{
+                flex-grow: 1;
+                text-align: center;
+            }
+            .tabs ol:first-child li.active{
+                color: red;
+            }
+            .tabs ol:nth-child(2) > li {
+                display: none;
+            }
+            .tabs ol:nth-child(2) > li.active {
+                display: flex;
+                justify-content: center;
+                align-items: center
+            }
+            .tabs ol:nth-child(2) > li.active div{
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+            }
+            .tabs ol {
+                list-style: none;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <div class="wrapper"> -->
+            <div class="tabs">
+                <ol data-role="tabs-nav">
+                    <li>test1</li>
+                    <li>test2</li>
+                </ol>
+                <ol data-role="tabs-panes">
+                    <li class="active"><div>1</div></li>
+                    <li><div>2</div></li>
+                </ol>
+            </div>
+        <!-- </div> -->
+
+        <script src="../dom/index.js"></script>
+        <script src="./index.js"></script>
+
+        <script>
+             new Tabs({
+                  element: document.querySelectorAll('.tabs')[0]
+                })
+        </script>
+    </body>
+</html>
