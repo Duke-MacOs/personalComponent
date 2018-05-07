@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.cz-tabs {
+    width: 300px;
+    border: 1px solid gray;
+}
+.cz-tabs-nav {
+    width: inherit;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+.cz-tabs-list {
+    list-style: none;
+}
+.cz-tabs-list li~li {
+    border-left: 1px solid blue;
+}
+.cz-tabs-title {
+    float: left;
+    margin-left: 20px;
+}
+.cz-tabs-item {
+    display: none;
+}
+.cz-tabs-item-active {
+    display: block;
+}
