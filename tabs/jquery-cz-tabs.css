@@ -24,7 +24,17 @@
 }
 .cz-tabs-title {
     float: left;
-    margin-left: 20px;
+    width: 60px;
+    border-radius: 3px 3px 0 0;
+}
+.cz-tabs-title a {
+    display: inline-block;
+    width: inherit;
+    text-align: center;
+}
+.active{
+    color: white;
+    background-color: black;
 }
 .cz-tabs-item {
     display: none;
